@@ -14,10 +14,12 @@ public class WeaponController : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        InvokeRepeating("Fire", delay, fireRate);
     }
 
     void Fire()
     {
         Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+        audioSource.Play();
     }
 }
